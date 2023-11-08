@@ -26,3 +26,5 @@ ca: Number of major vessels colored by fluoroscopy.
 thal: Thalassemia (a type of blood disorder) results (3 = normal, 6 = fixed defect, 7 = reversible defect).
 Target Variable:
 The target variable in this dataset is often output or target, which indicates the presence (1) or absence (0) of a heart attack
+
+The target variable in this dataset is often output or target, which indicates the presence (1) or absence (0) of a heart attack
