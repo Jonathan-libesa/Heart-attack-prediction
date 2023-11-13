@@ -12,6 +12,9 @@ from sklearn.metrics import accuracy_score, classification_report, confusion_mat
 from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.neighbors import KNeighborsClassifier
+from sklearn.model_selection import GridSearchCV
+import warnings
+warnings.filterwarnings('ignore')
 # Read the dataset into a pandas DataFrame
 df = pd.read_csv( r"C:\Users\cash\Documents\SEMSTER 4.1 NOTES\heart.csv")
 
@@ -180,31 +183,31 @@ plt.show()
 
 
 
-parameters = {"n_estimators":[50,100,150,200],
-             "criterion":["gini","entropy"],
-             "max_features":["auto","sqrt","log2"],
-             "bootstrap":[True,False]}
+#parameters = {"n_estimators":[50,100,150,200],
+             #"criterion":["gini","entropy"],
+             #"max_features":["auto","sqrt","log2"],
+             #"bootstrap":[True,False]}
 
 
-random_forest_grid = GridSearchCV(random_forest_new,param_grid=parameters)
-random_forest_grid.fit(X_train,y_train)
-
-
-
-print("Best Parameters:",random_forest_grid.best_params_)
+#random_forest_grid = GridSearchCV(random_forest_new,param_grid=parameters)
+#random_forest_grid.fit(X_train,y_train)
 
 
 
-
-random_forest_new2 = RandomForestClassifier(bootstrap=True,criterion="entropy",max_features="auto",n_estimators=200, random_state=5)
-random_forest_new2.fit(X_train,y_train)
-
-
-y_pred_4= random_forest_new2.predict(X_test)
-print("accuracy score of Random Forest after hyper-parameter tuning is:",accuracy_score(y_test,y_pred_4))
+#print("Best Parameters:",random_forest_grid.best_params_)
 
 
 
-RocCurveDisplay.from_estimator(random_forest_new2, X_test, y_test, name="Random Forest Algorithm")
-plt.title("Random Forest Algorithm Roc Curve and AUC")
-plt.plot([0,1],[0,1],"r--")
+
+#random_forest_new2 = RandomForestClassifier(bootstrap=True,criterion="entropy",max_features="auto",n_estimators=200, random_state=5)
+#random_forest_new2.fit(X_train,y_train)
+
+
+#y_pred_4= random_forest_new2.predict(X_test)
+#print("accuracy score of Random Forest after hyper-parameter tuning is:",accuracy_score(y_test,y_pred_4))
+
+
+
+#RocCurveDisplay.from_estimator(random_forest_new2, X_test, y_test, name="Random Forest Algorithm")
+#plt.title("Random Forest Algorithm Roc Curve and AUC")
+#plt.plot([0,1],[0,1],"r--")
